@@ -6,6 +6,13 @@ const app = {
   currentSection: 'intro',
 
   init() {
+    // Merge all data parts from separate files
+    window.coursesData = [
+      ...window.coursesData,
+      ...(window.coursesDataPart2 || []),
+      ...(window.coursesDataPart3 || []),
+      ...(window.coursesDataPart4 || [])
+    ];
     this.renderNavbar();
     this.navigate('home');
   },
