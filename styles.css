@@ -1,22 +1,22 @@
 :root {
-  /* Premium Blue Theme Palette */
-  --bg-dark: #0a0f1c;
-  --bg-gradient: linear-gradient(135deg, #0a0f1c 0%, #111a30 50%, #0d162a 100%);
-  --surface-color: rgba(20, 30, 55, 0.6);
-  --surface-hover: rgba(30, 45, 80, 0.8);
-  --border-color: rgba(60, 90, 150, 0.3);
+  /* Lighter Blue Theme Palette */
+  --bg-dark: #f8fafc;
+  --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 50%, #dbeafe 100%);
+  --surface-color: rgba(255, 255, 255, 0.85);
+  --surface-hover: rgba(255, 255, 255, 1);
+  --border-color: rgba(148, 163, 184, 0.3);
   
-  --primary: #3b82f6;
-  --accent: #8b5cf6;
-  --primary-glow: rgba(59, 130, 246, 0.5);
+  --primary: #2563eb;
+  --accent: #7c3aed;
+  --primary-glow: rgba(37, 99, 235, 0.3);
   
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dark: #cbd5e1;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dark: #1e293b;
 
-  --success: #10b981;
-  --warning: #f59e0b;
-  --danger: #ef4444;
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #dc2626;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -100,8 +100,8 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; font-weight: 700; }
 .tooltip { position: absolute; padding: 10px; background: rgba(0,0,0,0.8); color: white; border-radius: 4px; pointer-events: none; font-size: 0.9rem; border: 1px solid var(--border-color); }
 
 /* Quiz */
-.quiz-option { width: 100%; text-align: left; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); border-radius: 8px; color: white; margin-bottom: 10px; cursor: pointer; transition: 0.2s; font-size: 1rem; }
-.quiz-option:hover:not(:disabled) { background: rgba(255,255,255,0.1); }
+.quiz-option { width: 100%; text-align: left; padding: 16px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); margin-bottom: 10px; cursor: pointer; transition: 0.2s; font-size: 1rem; }
+.quiz-option:hover:not(:disabled) { background: rgba(0,0,0,0.05); }
 .quiz-option.correct { background: rgba(16, 185, 129, 0.2); border-color: var(--success); }
 .quiz-option.wrong { background: rgba(239, 68, 68, 0.2); border-color: var(--danger); }
 .quiz-explanation { background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--primary); padding: 16px; margin: 20px 0; border-radius: 4px; }

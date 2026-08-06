@@ -29,7 +29,10 @@ window.coursesData = [
         ],
         quiz: [
           { question: "What is the purpose of a budget?", options: ["To restrict spending entirely", "To plan how income is allocated so every dollar has a purpose", "To track gross income", "To eliminate all variable expenses"], correctIndex: 1, explanation: "A budget plans how income is allocated to expenses, savings, and debt." },
-          { question: "What does the 50/30/20 rule recommend for savings?", options: ["50%", "30%", "20%", "10%"], correctIndex: 2, explanation: "20% of net income should go to savings and debt repayment." }
+          { question: "What does the 50/30/20 rule recommend for savings?", options: ["50%", "30%", "20%", "10%"], correctIndex: 2, explanation: "20% of net income should go to savings and debt repayment." },
+          { question: "Why is tracking net income more important than gross income when budgeting?", options: ["Net income is always higher", "Gross income fluctuates too much", "Net income is your actual take-home pay after taxes and deductions", "There is no difference"], correctIndex: 2, explanation: "Net income represents the actual money available to you to spend, save, or invest." },
+          { question: "What is an emergency fund?", options: ["Money saved for vacation", "3-6 months of living expenses held in an accessible account", "A retirement account", "A high-risk stock portfolio"], correctIndex: 1, explanation: "An emergency fund protects you from unexpected expenses without going into debt." },
+          { question: "Which of the following is a fixed expense?", options: ["Groceries", "Entertainment", "Rent", "Gas"], correctIndex: 2, explanation: "Rent is a fixed expense because it stays the same every month." }
         ],
         chartType: 'bar'
       },

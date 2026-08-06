@@ -151,6 +151,20 @@ const app = {
     else if (this.currentSection === 'interactive') {
       html = `<h2>Interactive Visualization</h2>
               <p>Adjust the parameters below to see how the data changes.</p>
+              <div id="d3-controls" class="glass-panel mb-4" style="display:flex; gap: 20px; align-items:center; flex-wrap:wrap;">
+                <div>
+                  <label>Initial Principal: $<span id="val-principal">10000</span></label><br/>
+                  <input type="range" id="input-principal" min="1000" max="50000" step="1000" value="10000" oninput="document.getElementById('val-principal').innerText=Number(this.value).toLocaleString(); window.renderChart()">
+                </div>
+                <div>
+                  <label>Annual Return: <span id="val-rate">7</span>%</label><br/>
+                  <input type="range" id="input-rate" min="1" max="15" step="1" value="7" oninput="document.getElementById('val-rate').innerText=this.value; window.renderChart()">
+                </div>
+                <div>
+                  <label>Monthly Contribution: $<span id="val-monthly">200</span></label><br/>
+                  <input type="range" id="input-monthly" min="0" max="2000" step="50" value="200" oninput="document.getElementById('val-monthly').innerText=this.value; window.renderChart()">
+                </div>
+              </div>
               <div id="d3-container" class="chart-container"></div>`;
       setTimeout(() => {
         if(window.renderChart) window.renderChart(l.chartType || 'bar');
@@ -172,28 +186,33 @@ const app = {
       return;
     }
     
-    // Simplistic quiz rendering for first question as proof of concept
-    const currentQ = q[0];
-    container.innerHTML = `
-      <h3 class="mb-4">${currentQ.question}</h3>
-      <div id="quiz-options">
-        ${currentQ.options.map((opt, i) => `
-          <button class="quiz-option" onclick="app.answerQuiz(${i}, ${currentQ.correctIndex}, '${currentQ.explanation.replace(/'/g, "\\'")}')">${opt}</button>
-        `).join('')}
-      </div>
-      <div id="quiz-feedback" style="display:none;" class="quiz-explanation mt-4"></div>
-    `;
+    let html = '';
+    q.forEach((currentQ, qIndex) => {
+      html += `
+        <div class="mb-8 p-6 glass-panel" id="q-block-${qIndex}">
+          <h3 class="mb-4">Question ${qIndex + 1}: ${currentQ.question}</h3>
+          <div id="quiz-options-${qIndex}">
+            ${currentQ.options.map((opt, i) => `
+              <button class="quiz-option" onclick="app.answerQuiz(${qIndex}, ${i}, ${currentQ.correctIndex}, '${currentQ.explanation.replace(/'/g, "\\'")}')">${opt}</button>
+            `).join('')}
+          </div>
+          <div id="quiz-feedback-${qIndex}" style="display:none;" class="quiz-explanation mt-4"></div>
+        </div>
+      `;
+    });
+    container.innerHTML = html;
   },
 
-  answerQuiz(selectedIndex, correctIndex, explanation) {
-    const options = document.querySelectorAll('.quiz-option');
+  answerQuiz(qIndex, selectedIndex, correctIndex, explanation) {
+    const block = document.getElementById(`q-block-${qIndex}`);
+    const options = block.querySelectorAll('.quiz-option');
     options.forEach((btn, i) => {
       btn.disabled = true;
       if (i === correctIndex) btn.classList.add('correct');
       else if (i === selectedIndex) btn.classList.add('wrong');
     });
     
-    const feedback = document.getElementById('quiz-feedback');
+    const feedback = document.getElementById(`quiz-feedback-${qIndex}`);
     feedback.style.display = 'block';
     feedback.innerHTML = `<b>Explanation:</b> ${explanation}`;
   }

@@ -14,11 +14,23 @@ window.renderChart = function(type) {
 
   // A simple interactive compound interest bar chart
   if (type === 'bar' || !type) {
+    let principal = 10000;
+    let rate = 0.07;
+    let monthly = 200;
+    
+    const pInput = document.getElementById('input-principal');
+    const rInput = document.getElementById('input-rate');
+    const mInput = document.getElementById('input-monthly');
+    if (pInput) principal = parseInt(pInput.value);
+    if (rInput) rate = parseInt(rInput.value) / 100;
+    if (mInput) monthly = parseInt(mInput.value);
+
+    let currentBalance = principal;
     const data = Array.from({length: 30}, (_, i) => {
       const year = i + 1;
-      const principal = 10000;
-      const rate = 0.07;
-      return { year, value: principal * Math.pow(1 + rate, year) };
+      // Compounded annually for simplicity, adding monthly contributions * 12
+      currentBalance = currentBalance * (1 + rate) + (monthly * 12);
+      return { year, value: currentBalance };
     });
 
     const x = d3.scaleBand()
