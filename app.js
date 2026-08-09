@@ -144,9 +144,14 @@ const app = {
       html = `<h2>Real World Examples</h2><div class="prose"><i>"${l.realWorldExamples}"</i></div>`;
     }
     else if (this.currentSection === 'tips') {
-      html = `<h2>Tips & Mistakes</h2><div class="prose"><ul>` + 
-        (l.tipsAndMistakes || []).map(t => `<li><b>${t.type.toUpperCase()}:</b> ${t.content}</li>`).join('') + 
-        `</ul></div>`;
+      const tipsHtml = (l.tipsAndMistakes || []).map(t => {
+        if (t.type === 'tip') {
+          return `<div class="tip-card"><div class="tip-header">💡 Pro Tip</div><p>${t.content}</p></div>`;
+        } else {
+          return `<div class="mistake-card"><div class="tip-header">⚠️ Common Mistake</div><p>${t.content}</p></div>`;
+        }
+      }).join('');
+      html = `<h2>Tips & Mistakes</h2><div class="tips-container">${tipsHtml}</div>`;
     }
 
     else if (this.currentSection === 'quiz') {
