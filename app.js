@@ -6,13 +6,6 @@ const app = {
   currentSection: 'intro',
 
   init() {
-    // Merge all data parts from separate files
-    window.coursesData = [
-      ...window.coursesData,
-      ...(window.coursesDataPart2 || []),
-      ...(window.coursesDataPart3 || []),
-      ...(window.coursesDataPart4 || [])
-    ];
     this.renderNavbar();
     this.navigate('home');
   },
@@ -20,7 +13,7 @@ const app = {
   renderNavbar() {
     const navLinks = document.getElementById('nav-links');
     navLinks.innerHTML = window.coursesData.map(course => 
-      `<button class="nav-btn" onclick="app.navigate('course', '${course.id}')">${course.title.split(' ')[0]}</button>`
+      `<button class="nav-btn" onclick="app.navigate('course', '${course.id}')">${course.title.split(':')[0]}</button>`
     ).join('');
   },
 
@@ -92,10 +85,12 @@ const app = {
       { id: 'flashcards', title: 'Key Terms' },
       { id: 'lesson', title: 'The Lesson' },
       { id: 'realworld', title: 'Real World' },
-      { id: 'tips', title: 'Tips & Mistakes' },
-      { id: 'interactive', title: 'Interactive Chart' },
-      { id: 'quiz', title: 'Quiz' }
+      { id: 'tips', title: 'Tips & Mistakes' }
     ];
+    if (this.currentLesson.chartType) {
+      sections.push({ id: 'interactive', title: 'Interactive Chart' });
+    }
+    sections.push({ id: 'quiz', title: 'Quiz' });
 
     const sidebar = sections.map(s => `
       <button class="sidebar-btn" id="btn-${s.id}" onclick="app.setSection('${s.id}')">

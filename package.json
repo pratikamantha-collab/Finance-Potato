@@ -1,0 +1,24 @@
+{
+  "name": "finance-course-3d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratikamantha-collab/Finance-Potato.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/pratikamantha-collab/Finance-Potato/issues"
+  },
+  "homepage": "https://github.com/pratikamantha-collab/Finance-Potato#readme",
+  "dependencies": {
+    "pdf-parse": "^2.4.5"
+  }
+}
