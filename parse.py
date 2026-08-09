@@ -138,7 +138,16 @@ for i in range(1, len(course_parts)):
         if not l_title_match: continue
         l_title = l_title_match.group(1).strip()
         
-        intro = extract_section(l_part, 'Introduction', 'Key Terms & Definitions')
+        start_idx = l_part.find('Introduction')
+        if start_idx != -1:
+            intro = extract_section(l_part, 'Introduction', 'Key Terms & Definitions')
+        else:
+            title_len = len(l_title_match.group(0))
+            end_idx = l_part.find('Key Terms & Definitions')
+            if end_idx == -1: end_idx = title_len + 1000
+            intro_text = l_part[title_len:end_idx].strip()
+            intro_lines = [line.strip() for line in intro_text.split('\n') if line.strip() and not line.startswith('Course ')]
+            intro = ' '.join(intro_lines[:6])
         
         flashcards = parse_flashcards(l_part)
         if not flashcards: flashcards = [{'term': 'Note', 'definition': 'Review the lesson for key terms.'}]

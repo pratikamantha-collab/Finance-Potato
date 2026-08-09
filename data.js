@@ -1840,7 +1840,7 @@ window.coursesData = [
       {
         "id": "c2-l1",
         "title": "Lesson 1: Investing for Beginners",
-        "introduction": "",
+        "introduction": "Investing is one of the most powerful tools available for building long-term wealth. At its core, investing means putting your money to work so that it can grow over time - rather than letting it sit idle. This lesson introduces the foundational concepts every new investor needs before putting a single dollar into the market. Personal Finance Foundations  |  Page 47 What Is Investing?",
         "flashcards": [
           {
             "term": "Asset",
@@ -1995,7 +1995,7 @@ window.coursesData = [
       {
         "id": "c2-l2",
         "title": "Lesson 2: Trading for Beginners",
-        "introduction": "",
+        "introduction": "While investing is about building wealth over the long term, trading involves buying and selling financial instruments in shorter timeframes - sometimes within the same day. Trading can seem exciting and potentially lucrative, but it requires more knowledge, discipline, and emotional control than passive investing. This lesson provides a thorough grounding in trading fundamentals before you risk real capital. Trading vs. Investing: What's the Difference?",
         "flashcards": [
           {
             "term": "Market Order",
@@ -2142,7 +2142,7 @@ window.coursesData = [
       {
         "id": "c2-l3",
         "title": "Lesson 3: Crypto - Beyond the Basics",
-        "introduction": "",
+        "introduction": "Cryptocurrency has evolved from a niche technology experiment into a multi-trillion dollar asset class. Bitcoin, launched in 2009, introduced the world to decentralized digital money. Today, the crypto ecosystem includes thousands of projects spanning decentralized finance (DeFi), non- fungible tokens (NFTs), smart contracts, and more. This lesson gives you the knowledge to participate intelligently while understanding - and managing - the unique risks. What Is Cryptocurrency?",
         "flashcards": [
           {
             "term": "Blockchain",
@@ -2301,7 +2301,7 @@ window.coursesData = [
       {
         "id": "c2-l4",
         "title": "Lesson 4: Alternative Investing",
-        "introduction": "",
+        "introduction": "When most people think of investing, they think of stocks and bonds. But a vast world of alternative investments exists beyond traditional financial markets - real estate, private equity, commodities, hedge funds, collectibles, and more. Alternatives can offer powerful diversification benefits because they often move independently of stock markets. However, they also come with unique challenges: lower liquidity, higher fees, greater complexity, and often limited access for ordinary investors.",
         "flashcards": [
           {
             "term": "Private Equity",
@@ -2444,7 +2444,7 @@ window.coursesData = [
       {
         "id": "c2-l5",
         "title": "Lesson 5: Exploring Stocks and Sectors",
-        "introduction": "",
+        "introduction": "The stock market is not a monolith - it is organized into distinct sectors, each representing a group of companies in related industries. Understanding sectors, how they behave through economic cycles, and how to evaluate companies within them is essential for building a well- constructed equity portfolio. This lesson demystifies sector analysis and provides a framework for smarter stock selection. What Are Market Sectors?",
         "flashcards": [
           {
             "term": "Sector",
@@ -2607,7 +2607,7 @@ window.coursesData = [
       {
         "id": "c2-l6",
         "title": "Lesson 6: Investing for Income",
-        "introduction": "",
+        "introduction": "Not all investors are trying to grow their wealth as quickly as possible. Many - especially those approaching or in retirement - need their portfolio to generate reliable, consistent income. Income investing focuses on assets that pay regular cash flows: dividends from stocks, interest from bonds, distributions from REITs, and rental income from real estate. This lesson builds a comprehensive framework for income-focused portfolios. What Is Income Investing?",
         "flashcards": [
           {
             "term": "Dividend",
@@ -2758,7 +2758,7 @@ window.coursesData = [
       {
         "id": "c2-l7",
         "title": "Lesson 7: Analyzing Stock Fundamentals",
-        "introduction": "",
+        "introduction": "Fundamental analysis is the art and science of evaluating a company's financial health to determine whether its stock represents good value at the current price. While technical analysis asks 'when should I buy or sell?', fundamental analysis asks 'what should I buy?' - and whether the price I'm paying is reasonable. This lesson explains the core financial metrics every serious investor should understand. The Fundamental Analysis Framework",
         "flashcards": [
           {
             "term": "P/E Ratio",
@@ -2909,7 +2909,7 @@ window.coursesData = [
       {
         "id": "c2-l8",
         "title": "Lesson 8: Using Technical Analysis",
-        "introduction": "",
+        "introduction": "Technical analysis is the study of price charts, trading volume, and market statistics to forecast future price movements. While fundamental analysis determines what to buy by evaluating business quality and valuation, technical analysis focuses on when to buy and sell by interpreting the patterns and signals embedded in price history. It is widely used by traders and increasingly by investors to time entries and exits more effectively. The Philosophy of Technical Analysis",
         "flashcards": [
           {
             "term": "Support Level",

@@ -159,22 +159,21 @@ const app = {
 
   renderQuiz() {
     const container = document.getElementById('quiz-container');
-    const q = this.currentLesson.quiz || [];
-    if (q.length === 0) {
-      container.innerHTML = '<p>No quiz available.</p>';
+    if (!container) return;
+    const l = this.currentLesson;
+    if (!l.quiz || l.quiz.length === 0) {
+      container.innerHTML = '<p>No quiz available for this lesson.</p>';
       return;
     }
     
     let html = '';
-    q.forEach((currentQ, qIndex) => {
+    l.quiz.forEach((currentQ, qIndex) => {
+      // Safely escape quotes for inline handler
+      const safeExplanation = (currentQ.explanation || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
       html += `
         <div class="mb-8 p-6 glass-panel" id="q-block-${qIndex}">
           <h3 class="mb-4">Question ${qIndex + 1}: ${currentQ.question}</h3>
-          <div id="quiz-options-${qIndex}">
-            ${currentQ.options.map((opt, i) => `
-              <button class="quiz-option" onclick="app.answerQuiz(${qIndex}, ${i}, ${currentQ.correctIndex}, '${currentQ.explanation.replace(/'/g, "\\'")}')">${opt}</button>
-            `).join('')}
-          </div>
+          <button class="btn btn-primary" id="btn-reveal-${qIndex}" onclick="app.revealAnswer(${qIndex}, '${safeExplanation}')">Reveal Answer</button>
           <div id="quiz-feedback-${qIndex}" style="display:none;" class="quiz-explanation mt-4"></div>
         </div>
       `;
@@ -182,18 +181,13 @@ const app = {
     container.innerHTML = html;
   },
 
-  answerQuiz(qIndex, selectedIndex, correctIndex, explanation) {
-    const block = document.getElementById(`q-block-${qIndex}`);
-    const options = block.querySelectorAll('.quiz-option');
-    options.forEach((btn, i) => {
-      btn.disabled = true;
-      if (i === correctIndex) btn.classList.add('correct');
-      else if (i === selectedIndex) btn.classList.add('wrong');
-    });
+  revealAnswer(qIndex, explanation) {
+    const btn = document.getElementById(`btn-reveal-${qIndex}`);
+    if (btn) btn.style.display = 'none';
     
     const feedback = document.getElementById(`quiz-feedback-${qIndex}`);
     feedback.style.display = 'block';
-    feedback.innerHTML = `<b>Explanation:</b> ${explanation}`;
+    feedback.innerHTML = `<b>Answer:</b> ${explanation}`;
   }
 };
 
