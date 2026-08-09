@@ -87,9 +87,7 @@ const app = {
       { id: 'realworld', title: 'Real World' },
       { id: 'tips', title: 'Tips & Mistakes' }
     ];
-    if (this.currentLesson.chartType) {
-      sections.push({ id: 'interactive', title: 'Interactive Chart' });
-    }
+
     sections.push({ id: 'quiz', title: 'Quiz' });
 
     const sidebar = sections.map(s => `
@@ -150,28 +148,7 @@ const app = {
         (l.tipsAndMistakes || []).map(t => `<li><b>${t.type.toUpperCase()}:</b> ${t.content}</li>`).join('') + 
         `</ul></div>`;
     }
-    else if (this.currentSection === 'interactive') {
-      html = `<h2>Interactive Visualization</h2>
-              <p>Adjust the parameters below to see how the data changes.</p>
-              <div id="d3-controls" class="glass-panel mb-4" style="display:flex; gap: 20px; align-items:center; flex-wrap:wrap;">
-                <div>
-                  <label>Initial Principal: $<span id="val-principal">10000</span></label><br/>
-                  <input type="range" id="input-principal" min="1000" max="50000" step="1000" value="10000" oninput="document.getElementById('val-principal').innerText=Number(this.value).toLocaleString(); window.renderChart()">
-                </div>
-                <div>
-                  <label>Annual Return: <span id="val-rate">7</span>%</label><br/>
-                  <input type="range" id="input-rate" min="1" max="15" step="1" value="7" oninput="document.getElementById('val-rate').innerText=this.value; window.renderChart()">
-                </div>
-                <div>
-                  <label>Monthly Contribution: $<span id="val-monthly">200</span></label><br/>
-                  <input type="range" id="input-monthly" min="0" max="2000" step="50" value="200" oninput="document.getElementById('val-monthly').innerText=this.value; window.renderChart()">
-                </div>
-              </div>
-              <div id="d3-container" class="chart-container"></div>`;
-      setTimeout(() => {
-        if(window.renderChart) window.renderChart(l.chartType || 'bar');
-      }, 100);
-    }
+
     else if (this.currentSection === 'quiz') {
       html = `<h2>Quiz</h2><div id="quiz-container"></div>`;
       setTimeout(() => this.renderQuiz(), 50);

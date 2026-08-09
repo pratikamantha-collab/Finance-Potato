@@ -44,11 +44,13 @@ def parse_flashcards(l_text):
     while idx < len(lines):
         line = lines[idx]
         
-        # Heuristic for end of table: a line that is a header (title case, no punctuation, long but not too long)
-        # Actually, if a "term" is over 40 chars, it's probably the end of the table
-        if not current_def and len(line) > 50:
-            break
-            
+        # Stop at the next major section or known header
+        if line in ["Real-World Example", "Tips & Common Mistakes", "Quiz Questions & Answers"] or line.startswith("Why Budgeting Works") or line.startswith("Building Your First Budget"):
+             break
+        if not current_def and len(line) > 80 and not current_term:
+             # if we are not parsing a term and we hit a long paragraph, we might be out of the table
+             break
+        
         # Heuristic for Term: short, doesn't end in punctuation
         if not line.endswith('.') and not line.endswith('?') and len(line) <= 45 and not current_term:
             current_term = line
